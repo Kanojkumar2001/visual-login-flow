@@ -29,7 +29,11 @@ const Dashboard = () => {
         <div className="bg-dark-card rounded-lg p-6">
           <h3 className="text-lg font-medium text-white mb-2">Available Cars</h3>
           <p className="text-gray-400 mb-4">Browse our collection of premium vehicles</p>
-          <Button variant="outline" className="w-full border-gray-700 text-gray-300">
+          <Button 
+            variant="outline" 
+            className="w-full border-gray-700 text-gray-300"
+            onClick={() => navigate('/assets')}
+          >
             View Cars
           </Button>
         </div>
@@ -37,7 +41,11 @@ const Dashboard = () => {
         <div className="bg-dark-card rounded-lg p-6">
           <h3 className="text-lg font-medium text-white mb-2">My Bookings</h3>
           <p className="text-gray-400 mb-4">View and manage your current bookings</p>
-          <Button variant="outline" className="w-full border-gray-700 text-gray-300">
+          <Button 
+            variant="outline" 
+            className="w-full border-gray-700 text-gray-300"
+            onClick={() => navigate('/booking')}
+          >
             View Bookings
           </Button>
         </div>
@@ -45,7 +53,11 @@ const Dashboard = () => {
         <div className="bg-dark-card rounded-lg p-6">
           <h3 className="text-lg font-medium text-white mb-2">Services</h3>
           <p className="text-gray-400 mb-4">Schedule maintenance and other services</p>
-          <Button variant="outline" className="w-full border-gray-700 text-gray-300">
+          <Button 
+            variant="outline" 
+            className="w-full border-gray-700 text-gray-300"
+            onClick={() => navigate('/services')}
+          >
             View Services
           </Button>
         </div>
