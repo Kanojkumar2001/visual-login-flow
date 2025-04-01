@@ -1,11 +1,10 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
-import { CarCard } from "@/components/CarCard";
+import CarCard from "@/components/CarCard";
 import { 
   Carousel,
   CarouselContent,
@@ -16,7 +15,6 @@ import {
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Car, CarFront } from "lucide-react";
 
-// Sample data for demonstration
 const carsData = [
   {
     id: "car1",
@@ -79,7 +77,6 @@ const AssetsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showElectricOnly, setShowElectricOnly] = useState(false);
   
-  // Filter cars based on search, price range and electric filter
   const filteredCars = carsData.filter(car => {
     const matchesSearch = car.model.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesPrice = car.price >= priceRange[0] && car.price <= priceRange[1];
@@ -98,7 +95,6 @@ const AssetsPage = () => {
         </div>
       </div>
 
-      {/* Featured Cars Carousel */}
       <Card className="bg-dark-card text-white border-gray-700 mb-8">
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
@@ -137,7 +133,6 @@ const AssetsPage = () => {
         </CardContent>
       </Card>
       
-      {/* Filters */}
       <Card className="bg-dark-card text-white border-gray-700 mb-8">
         <CardHeader>
           <CardTitle>Find Your Perfect Car</CardTitle>
@@ -181,7 +176,6 @@ const AssetsPage = () => {
         </CardContent>
       </Card>
       
-      {/* Car Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredCars.length > 0 ? (
           filteredCars.map(car => (
