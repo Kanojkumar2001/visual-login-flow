@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Car, CarFront } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const carsData = [
   {
@@ -76,6 +77,7 @@ const AssetsPage = () => {
   const [priceRange, setPriceRange] = useState<number[]>([0, 200]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showElectricOnly, setShowElectricOnly] = useState(false);
+  const navigate = useNavigate();
   
   const filteredCars = carsData.filter(car => {
     const matchesSearch = car.model.toLowerCase().includes(searchQuery.toLowerCase());
@@ -84,6 +86,10 @@ const AssetsPage = () => {
     
     return matchesSearch && matchesPrice && matchesElectric;
   });
+
+  const handleCarouselImageClick = () => {
+    navigate('/buy-cars');
+  };
 
   return (
     <div className="p-6">
@@ -114,7 +120,8 @@ const AssetsPage = () => {
                           <img
                             src={car.image}
                             alt={car.model}
-                            className="w-full h-full object-cover rounded-t-lg"
+                            className="w-full h-full object-cover rounded-t-lg cursor-pointer hover:opacity-80 transition-opacity"
+                            onClick={handleCarouselImageClick}
                           />
                         </AspectRatio>
                         <div className="p-4">

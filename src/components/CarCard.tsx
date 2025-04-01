@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Heart } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
 
 interface CarCardProps {
   car: {
@@ -17,10 +18,15 @@ interface CarCardProps {
 
 const CarCard = ({ car }: CarCardProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const navigate = useNavigate();
 
   const toggleFavorite = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsFavorite(!isFavorite);
+  };
+
+  const handleImageClick = () => {
+    navigate('/sell-cars');
   };
 
   return (
@@ -49,7 +55,8 @@ const CarCard = ({ car }: CarCardProps) => {
           <img 
             src={car.image} 
             alt={car.model} 
-            className="h-32 object-contain" 
+            className="h-32 object-contain cursor-pointer hover:opacity-80 transition-opacity" 
+            onClick={handleImageClick}
           />
         </div>
         
